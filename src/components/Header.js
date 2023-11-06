@@ -1,5 +1,6 @@
 import Link from '../assets/images/link.png';
-function Header({ logo, text, link }) {
+
+const Header = ({ logo, text }) => {
   return (
     <header className='header'>
       <div className='header__block_logo'>
@@ -22,6 +23,6 @@ function Header({ logo, text, link }) {
       </>
     </header>
   );
-}
+};
 
 export default Header;

@@ -9,3 +9,14 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+@media screen and (min-width: 1800px) {
+  .menu__button {
+    padding: 1em 1.1em;
+  }
+}
+@media screen and (min-width: 2020px) {
+  .menu__button {
+    padding: 1em 2.2em;
+  }
+}
