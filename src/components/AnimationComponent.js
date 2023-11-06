@@ -14,25 +14,30 @@ const AnimationComponent = ({ toggleMenu }) => {
     toggleMenu();
   };
 
+  const forwardAnim = (anim) => {
+    anim.setSpeed(2.5);
+    anim.playSegments([0, anim.totalFrames], true);
+  };
+  const backwardAnim = (anim) => {
+    anim.setSpeed(-2.5);
+    anim.playSegments([anim.totalFrames, 0], true);
+  };
+
   useEffect(() => {
     const animationContainer = animationContainerRef.current;
-    if (animationContainer) {
-      const anim = lottie.loadAnimation({
-        container: animationContainer,
-        renderer: 'svg',
-        loop: false,
-        autoplay: isPlaying,
-        animationData: animationData,
-      });
-      if (animationDirection === -1) {
-        anim.setSpeed(2.5);
-        anim.playSegments([0, anim.totalFrames], true);
-      } else {
-        anim.setSpeed(-2.5);
-        anim.playSegments([anim.totalFrames, 0], true);
-      }
-      return () => anim.destroy();
-    }
+    if (!animationContainer) return;
+
+    const anim = lottie.loadAnimation({
+      container: animationContainer,
+      renderer: 'svg',
+      loop: false,
+      autoplay: isPlaying,
+      animationData: animationData,
+    });
+
+    animationDirection === -1 ? forwardAnim(anim) : backwardAnim(anim);
+
+    return () => anim.destroy();
   }, [isPlaying, animationDirection]);
 
   return (

@@ -1,12 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Menu = ({ isMenuOpen }) => {
+  const menuContainerRef = useRef(null);
+
   useEffect(() => {
-    const menu = document.querySelector('.menu');
-    menu.classList.remove('menu__close');
+    menuContainerRef?.current?.classList.remove('menu__close');
   }, []);
+
   return (
-    <menu className={`menu ${isMenuOpen ? 'menu__open' : 'menu__close'}`}>
+    <menu
+      className={`menu ${isMenuOpen ? 'menu__open' : 'menu__close'}`}
+      ref={menuContainerRef}>
       <li className='menu__container'>
         <button className='menu__button menu__button_services'>Услуги</button>
       </li>
