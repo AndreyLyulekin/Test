@@ -10,15 +10,23 @@ const Menu = ({ isMenuOpen }) => {
   }, []);
 
   return (
-    <menu
-      className={`menu ${isMenuOpen ? 'menu__open' : 'menu__close'}`}
-      ref={menuRef}>
-      {menuContainers.map((i) => (
-        <li className='menu__container'>
-          <button className={`menu__button ${i.className}`}>{i.text}</button>
-        </li>
-      ))}
-    </menu>
+    <div style={{ overflow: 'hidden' }}>
+      <menu
+        className={`menu ${isMenuOpen ? 'menu__open' : 'menu__close'}`}
+        ref={menuRef}>
+        {menuContainers.map((i, index) => (
+          <li
+            key={index}
+            className='menu__container'>
+            <button
+              className={`menu__button ${i.className}`}
+              key={i.text}>
+              {i.text}
+            </button>
+          </li>
+        ))}
+      </menu>
+    </div>
   );
 };
 export default Menu;
