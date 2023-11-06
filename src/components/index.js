@@ -9,6 +9,7 @@ import AnimationComponent from './AnimationComponent.js';
 import Logo from './Logo.js';
 import Menu from './Menu.js';
 import animationData from '../assets/lotties/Frame13213150732.json';
+import menuContainers from '../helpers/consts.js';
 
 export {
   Footer,
@@ -22,4 +23,5 @@ export {
   Logo,
   Menu,
   animationData,
+  menuContainers,
 };
