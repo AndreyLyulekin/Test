@@ -1,4 +1,4 @@
-const menuContainers = [
+export const menuContainers = [
   {
     className: 'menu__button_services',
     text: 'Услуги',
@@ -25,4 +25,21 @@ const menuContainers = [
   },
 ];
 
-export default menuContainers;
+export const footerThemes = [
+  {
+    footerBgColor: 'inherit',
+    footerTxtColor: 'white',
+    footerBorderColor: 'white',
+  },
+  {
+    footerBgColor: 'white',
+    footerTxtColor: '#293743',
+    footerBorderColor: '#293743',
+  },
+  {
+    footerBgColor: '#293743',
+    footerTxtColor: '#B3B3B3',
+    footerBorderColor: '#B3B3B3',
+  },
+];
+export const footerColorTheme = [1, 2, 3];

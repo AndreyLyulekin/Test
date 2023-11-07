@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 
 import { intersectionCallback } from '../components/index.js';
+
 const useObserver = () => {
   const [observer, setObserver] = useState();
-  const [currentSectionColor, setCurrentSectionColor] = useState('transparent');
+  const [footerColorTheme, setFooterColorTheme] = useState(1);
 
-  const handleIntersection = (entries) => intersectionCallback(entries, setCurrentSectionColor);
+  const handleIntersection = (entries) => intersectionCallback(entries, setFooterColorTheme);
 
   useEffect(() => {
     let options = {
@@ -23,7 +24,7 @@ const useObserver = () => {
     };
   }, []);
 
-  return { observer, currentSectionColor };
+  return { observer, footerColorTheme };
 };
 
 export default useObserver;

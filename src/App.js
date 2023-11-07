@@ -4,7 +4,7 @@ import { Footer, Preloader, useObserver, Section } from './components/index.js';
 
 const App = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const { observer, currentSectionColor } = useObserver();
+  const { observer, footerColorTheme } = useObserver();
 
   const sections = Array.from(Array(3), (e, i) => i + 1);
 
@@ -25,7 +25,7 @@ const App = () => {
               observer={observer}
             />
           ))}
-          <Footer currentSectionColor={currentSectionColor} />
+          <Footer footerColorTheme={footerColorTheme} />
         </>
       ) : (
         <Preloader />

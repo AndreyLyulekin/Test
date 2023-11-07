@@ -63,15 +63,7 @@
 .emptySection {
   min-height: 100vh;
 }
-.emptySection-2 {
-  min-height: 100vh;
-  background-color: red;
-}
 .emptySection-3 {
-  min-height: 100vh;
-  background-color: #293743;
-}
-.emptySection:last-child {
   background-color: #293743;
 }
 .footer {

@@ -1,24 +1,38 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-import { AnimationComponent, Logo, Menu } from './index.js';
+import { AnimationComponent, Logo, Menu, footerThemes } from './index.js';
 
-const Footer = ({ currentSectionColor }) => {
+const Footer = ({ footerColorTheme }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [currentColorTheme, setCurrentColorTheme] = useState(footerThemes[0]);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    setCurrentColorTheme(footerThemes[footerColorTheme - 1]);
+  }, [footerColorTheme]);
+
   return (
     <footer
       className={`footer ${isMenuOpen ? 'footer_open' : ''}`}
-      style={{ backgroundColor: isMenuOpen ? '' : currentSectionColor }}>
+      style={{
+        backgroundColor: isMenuOpen ? '' : currentColorTheme.footerBgColor,
+        border: `2px solid ${currentColorTheme.footerBorderColor}`,
+      }}>
       <Menu isMenuOpen={isMenuOpen} />
       <AnimationComponent toggleMenu={toggleMenu} />
       <div className='logo__container'>
-        <Logo isMenuOpen={isMenuOpen} />
+        <Logo
+          isMenuOpen={isMenuOpen}
+          footerTxtColor={currentColorTheme.footerTxtColor}
+        />
         <span>
           <a
+            style={{
+              color: currentColorTheme.footerTxtColor,
+            }}
             className={`footer__contact_base ${isMenuOpen ? 'footer__contact_number' : ''}`}
             href='tel:+73432195195'>
             +7 3432-195-195
@@ -27,7 +41,11 @@ const Footer = ({ currentSectionColor }) => {
       </div>
       <button
         className={`footer__contact_button ${isMenuOpen ? 'footer__contact' : ''}`}
-        style={{ backgroundColor: isMenuOpen ? 'inherit' : currentSectionColor }}>
+        style={{
+          backgroundColor: isMenuOpen ? 'inherit' : currentColorTheme.footerBgColor,
+          outline: `1px solid ${currentColorTheme.footerBorderColor}`,
+          color: currentColorTheme.footerTxtColor,
+        }}>
         Оставить заявку
       </button>
     </footer>

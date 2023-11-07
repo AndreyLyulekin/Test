@@ -1,11 +1,11 @@
+import { footerColorTheme } from './consts';
+
 const intersectionCallback = (entries, onColorChange) => {
   entries.forEach((e) => {
     if (!e.isIntersecting) return;
 
-    onColorChange(colorsBg[e.target.id - 1]);
+    onColorChange(footerColorTheme[e.target.id - 1]);
   });
 };
-
-const colorsBg = ['transparent', 'white', '#293743'];
 
 export default intersectionCallback;

@@ -9,10 +9,11 @@ import AnimationComponent from './AnimationComponent.js';
 import Logo from './Logo.js';
 import Menu from './Menu.js';
 import animationData from '../assets/lotties/Frame13213150732.json';
-import menuContainers from '../helpers/consts.js';
+import { menuContainers, footerThemes } from '../helpers/consts.js';
 import intersectionCallback from '../helpers/utils.js';
 import useObserver from '../hooks/useObserver.js';
 import Section from '../components/Section.js';
+import { footerColorTheme } from '../helpers/consts.js';
 
 export {
   Footer,
@@ -30,4 +31,6 @@ export {
   intersectionCallback,
   useObserver,
   Section,
+  footerThemes,
+  footerColorTheme,
 };
