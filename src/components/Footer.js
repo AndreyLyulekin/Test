@@ -5,6 +5,7 @@ import { AnimationComponent, Logo, Menu, footerThemes } from './index.js';
 const Footer = ({ footerColorTheme }) => {
   const [isMenuOpen, setMenuOpen] = useState(false);
   const [currentColorTheme, setCurrentColorTheme] = useState(footerThemes[0]);
+  const [isSectionWhite, setisSectionWhite] = useState();
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
@@ -12,10 +13,8 @@ const Footer = ({ footerColorTheme }) => {
 
   useEffect(() => {
     setCurrentColorTheme(footerThemes[footerColorTheme - 1]);
-  }, [footerColorTheme]);
-
-  useEffect(() => {
     isMenuOpen ? setCurrentColorTheme(footerThemes[1]) : setCurrentColorTheme(footerThemes[footerColorTheme - 1]);
+    footerColorTheme === 2 ? setisSectionWhite(true) : setisSectionWhite(false);
   }, [footerColorTheme, isMenuOpen]);
 
   return (
@@ -26,7 +25,10 @@ const Footer = ({ footerColorTheme }) => {
         border: `2px solid ${currentColorTheme.footerBorderColor}`,
       }}>
       <Menu isMenuOpen={isMenuOpen} />
-      <AnimationComponent toggleMenu={toggleMenu} />
+      <AnimationComponent
+        toggleMenu={toggleMenu}
+        isSectionWhite={isSectionWhite}
+      />
       <div className='logo__container'>
         <Logo
           isMenuOpen={isMenuOpen}

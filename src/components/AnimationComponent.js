@@ -3,7 +3,7 @@ import lottie from 'lottie-web';
 
 import { animationData } from './index';
 
-const AnimationComponent = ({ toggleMenu }) => {
+const AnimationComponent = ({ toggleMenu, isSectionWhite }) => {
   const animationContainerRef = useRef(null);
   const [isPlaying, setPlaying] = useState(false);
   const [animationDirection, setAnimationDirection] = useState(1);
@@ -44,7 +44,10 @@ const AnimationComponent = ({ toggleMenu }) => {
     <div
       ref={animationContainerRef}
       onClick={handleClick}
-      className='footer__animation'
+      className={`footer__animation`}
+      style={{
+        filter: isSectionWhite ? 'brightness(0.1)' : '',
+      }}
     />
   );
 };
