@@ -14,6 +14,10 @@ const Footer = ({ footerColorTheme }) => {
     setCurrentColorTheme(footerThemes[footerColorTheme - 1]);
   }, [footerColorTheme]);
 
+  useEffect(() => {
+    isMenuOpen ? setCurrentColorTheme(footerThemes[1]) : setCurrentColorTheme(footerThemes[footerColorTheme - 1]);
+  }, [footerColorTheme, isMenuOpen]);
+
   return (
     <footer
       className={`footer ${isMenuOpen ? 'footer_open' : ''}`}
