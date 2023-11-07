@@ -10,6 +10,9 @@ import Logo from './Logo.js';
 import Menu from './Menu.js';
 import animationData from '../assets/lotties/Frame13213150732.json';
 import menuContainers from '../helpers/consts.js';
+import intersectionCallback from '../helpers/utils.js';
+import useObserver from '../hooks/useObserver.js';
+import Section from '../components/Section.js';
 
 export {
   Footer,
@@ -24,4 +27,7 @@ export {
   Menu,
   animationData,
   menuContainers,
+  intersectionCallback,
+  useObserver,
+  Section,
 };
